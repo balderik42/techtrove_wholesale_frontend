@@ -1,0 +1,285 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Ensure the body takes up the full viewport */
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #D6F2ED; /* Optional: Change the background color to match the navbar */
+    font-family: Arial, sans-serif; /* Optional: Set a default font */
+  }
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1B5E3C;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 5px 20px; /* Reduced padding to decrease height */
+    box-sizing: border-box; /* Ensures padding is inside the height and width */
+    height: 60px; /* Set a fixed height to control the navbar size */
+    width: 100%;
+}
+  
+  /* Logo styles */
+  .logo-image {
+    height: 45px;
+    
+  }
+  .logo-name {
+    height: 40px;
+    
+  }
+  
+  /* Search bar container */
+  .navbar-search {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    margin-left: 20px;
+    position: relative;
+  }
+  
+ /* Updated search bar container */
+.navbar-search input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  width: 100%;
+  max-width: 300px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  color: #333; /* Ensuring input text is visible */
+  background-color: #fff; /* White background for better contrast */
+}
+
+/* Placeholder text styling */
+.navbar-search input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+/* On focus: add border and subtle shadow */
+.navbar-search input:focus {
+  border-color: #1B5E3C;
+  box-shadow: 0 0 8px rgba(27, 94, 60, 0.5);
+}
+
+/* Search icon styling */
+.search-icon {
+  color: #333;
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  transition: transform 0.2s;
+}
+
+/* Hover effect for the search icon */
+.search-icon:hover {
+  transform: scale(1.2);
+  color: #1B5E3C;
+}
+
+/* Search results container */
+.search-results {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  margin-top: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Individual search result item */
+.search-result-item {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  font-weight: 500;
+  color: #1B5E3C;
+}
+
+/* Hover effect for search result item */
+.search-result-item:hover {
+  background-color: #D6F2ED;
+}
+
+  .search-icon {
+    color: #241b39;
+    font-size: 1.2rem;
+    cursor: pointer;
+    position: absolute;
+    right: 15px; /* Adjust to fit with input */
+  }
+  .search-results {
+   margin-top: 225px;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+  }
+  
+  .search-result-item {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .search-result-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  
+
+  .menu-icon {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    margin-left: 20px;
+  }
+  .navbar-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Button styles */
+  .navbar-buttons button {
+    background-color: #102321;
+    border: none;
+    padding: 6px 15px;
+    color: white;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 13px;
+  }
+  
+  .navbar-buttons button:hover {
+    background-color:#FFEAC6;
+  }
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content button {
+    background: none;
+    border: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+  
+  .dropdown-content button:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+
+  @media (max-width: 768px) {
+    /* Only show the logo and search bar, hide the buttons by default */
+    .navbar-buttons {
+      display: none;
+    }
+  
+    /* Show the menu icon */
+    .menu-icon {
+      display: block;
+      color: white;
+    }
+  
+    /* Make the navbar more compact */
+    .navbar {
+        flex-wrap: nowrap; /* Prevent elements from wrapping to a new line */
+        justify-content: space-between;
+        padding: 5px 10px;
+      }
+  
+    /* When the menu is active (opened), show the buttons */
+    .navbar-search {
+        margin-left: 10px;
+        flex-grow: 1; /* Allow the search bar to grow and fill available space */
+      }
+      .navbar-search input {
+        width: 100%;
+        max-width: none; /* Allow the input to take up full width */
+      }
+      .navbar-buttons.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #241b39;
+        width: 200px;
+        padding: 10px;
+      }
+      .navbar-buttons button {
+        margin: 5px 0;
+        width: 100%;
+        text-align: left;
+      }
+  }
+  
+  @media (max-width: 480px) {
+    /* Adjust for smaller screens */
+    .navbar {
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: nowrap;
+      }
+      .logo-image {
+        display: none;
+        height: 45px;
+        
+      }
+  
+      .navbar-search {
+        width: 100%;
+        margin-left: 5px;
+      }
+  
+      .navbar-search input {
+        width: calc(100% - 40px); /* Adjust for the space of the menu icon */
+      }
+  
+      .search-icon {
+        right: 15px; /* Adjust icon position */
+      }
+
+      .navbar-buttons.active {
+        width: 100%;
+      }
+  }

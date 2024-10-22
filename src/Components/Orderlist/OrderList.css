@@ -1,0 +1,135 @@
+/* General Styles */
+.order-list-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif; /* Changed font for a modern look */
+}
+
+h2 {
+  text-align: center; /* Center align title */
+  color: #333; /* Darker text color */
+}
+
+.order-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.order-item {
+  border: 1px solid #ccc;
+  border-radius: 8px; /* More rounded corners */
+  padding: 15px;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s; /* Added scale effect */
+}
+
+.order-item:hover {
+  background: #f0f0f0;
+  transform: scale(1.02); /* Slightly scale up on hover */
+}
+
+.order-info {
+  display: flex; /* Flexbox for alignment */
+  justify-content: space-between; /* Space between index and details */
+  align-items: center; /* Center align items */
+}
+
+.order-index {
+  font-weight: bold; /* Bold for index */
+  color: #007BFF; /* Primary color */
+}
+
+/* Modal Styling */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px; /* Adjusted max-width for smaller modals */
+  width: 90%; /* Ensure it’s responsive */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  overflow-y: auto; /* Allow scrolling if content overflows */
+  max-height: 80vh; /* Set maximum height for the modal */
+  position: relative; /* Relative positioning for close button */
+}
+
+/* Close button */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ff0000; /* Red background for close button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Order Details */
+.order-details {
+  margin-top: 20px; /* Added margin for better spacing */
+}
+
+.order-details h3 {
+  margin-bottom: 10px; /* Space below the title */
+  text-align: center; /* Center align the title */
+}
+
+.order-details ul {
+  list-style: none;
+  padding: 0;
+}
+
+.order-details li {
+  margin-bottom: 15px;
+  display: flex; /* Flexbox for aligning image and text */
+  align-items: center; /* Center vertically */
+  padding: 5px 0; /* Added padding for better spacing */
+}
+
+.orderlist-image {
+  max-width: 80px; /* Smaller image size for a neater look */
+  height: auto;
+  margin-right: 10px; /* Space between image and text */
+}
+
+/* Loading and Error Messages */
+.loading-message,
+.error-message {
+  color: #f00; /* Red color for error messages */
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .modal-content {
+    padding: 15px; /* Reduced padding on small screens */
+  }
+
+  .orderlist-image {
+    max-width: 50px; /* Smaller images on mobile */
+  }
+
+  .close-button {
+    padding: 5px 8px; /* Adjust close button size on mobile */
+  }
+
+  .order-item {
+    padding: 10px; /* Less padding on mobile */
+  }
+}

@@ -1,0 +1,249 @@
+/* General Cart Page Styling */
+.cart-page {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* Cart Title Styling */
+.cart-title {
+  font-size: 2rem; /* Increased font size */
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Cart Container Styling */
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Product Card Styling */
+.product-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Hover effect for product cards */
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Product Image Styling */
+.product-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Product Info Styling */
+.product-info {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  margin-left: 20px;
+}
+
+/* Responsive adjustments for product name and price */
+.product-name {
+  font-size: 1.5rem; /* Changed font size for better visibility */
+  margin-right: 20px;
+  color: #333;
+  flex: 2;
+}
+
+.product-price {
+  font-size: 1.25rem; /* Changed font size for better visibility */
+  margin-right: 20px;
+  color: #e67e22;
+  flex: 1;
+}
+
+/* Quantity Control Styling */
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 20px;
+  flex: 1;
+}
+
+/* Styling for quantity input */
+.quantity-input {
+  width: 50px;
+  text-align: center;
+  font-size: 1rem; /* Adjusted font size */
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #f4f4f4;
+}
+
+/* Styling for quantity buttons */
+.quantity-button {
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 1.25rem; /* Adjusted font size */
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.quantity-button:hover {
+  background-color: #2ecc71;
+}
+
+/* Delete Button Styling */
+.delete-button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem; /* Adjusted font size */
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.delete-button:hover {
+  background-color: #c0392b;
+}
+
+/* Cart Summary Styling */
+.cart-bottom {
+  display: flex;
+  justify-content: flex-end; /* Aligns the summary to the right */
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #f1f1f1;
+}
+
+.cart-summary {
+  width: 100%; /* Takes 100% of the available width on small screens */
+  max-width: 300px; /* Limit max-width for larger screens */
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  align-self: flex-start; /* Aligns the cart summary to the top of the page */
+  position: sticky;
+  top: 20px; /* Sticks the cart-summary when scrolling */
+}
+
+/* Cart Summary Heading */
+.cart-summary h2 {
+  margin-bottom: 10px;
+}
+
+/* Cart Summary Text */
+.cart-summary p {
+  margin: 5px 0;
+}
+
+/* Place Order Button Styling */
+.place-order-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.125rem; /* Adjusted font size */
+  width: 100%; /* Makes the button take the full width */
+}
+
+.place-order-button:hover {
+  background-color: #45a049;
+}
+
+/* Address Form Styling */
+.address-form-container {
+  margin-top: 20px;
+}
+
+.address-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Input fields for address */
+.address-form input {
+  margin: 10px 0;
+  padding: 8px;
+  font-size: 1rem;
+}
+
+/* Submit Button Styling */
+.submit-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .cart-title {
+    font-size: 1.5rem; /* Smaller title for mobile */
+  }
+
+  .product-card {
+    flex-direction: column; /* Stack items on small screens */
+    align-items: flex-start;
+  }
+
+  .product-info {
+    flex-direction: column; /* Stack product info on small screens */
+    align-items: flex-start;
+    margin-left: 0; /* Reset margin */
+  }
+
+  .product-name,
+  .product-price {
+    font-size: 1rem; /* Smaller font size */
+  }
+
+  .quantity-button {
+    font-size: 1rem; /* Smaller button font */
+  }
+
+  .cart-summary {
+    width: 100%; /* Full width for mobile */
+  }
+
+  .place-order-button {
+    font-size: 1rem; /* Smaller button font */
+  }
+
+  .address-form input {
+    font-size: 0.9rem; /* Smaller font size for inputs */
+  }
+}
+
+@media (max-width: 480px) {
+  .product-image {
+    width: 80px; /* Smaller image size for mobile */
+    height: 80px; /* Adjust height */
+  }
+
+  .cart-title {
+    font-size: 1.25rem; /* Even smaller title for extra small screens */
+  }
+}

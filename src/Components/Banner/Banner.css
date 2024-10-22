@@ -1,0 +1,22 @@
+.banner-container {
+    position: relative;
+    width: 100%;
+   
+    margin: auto;
+    overflow: hidden;
+  }
+  
+  .banner-container img {
+    width: 100%;
+    height: auto;
+    display: none;
+  }
+  
+  .banner-container img.active {
+    display: block;
+  }
+  
+  .banner-container img {
+    height: 420px; /* Adjust according to your design */
+  }
+  
