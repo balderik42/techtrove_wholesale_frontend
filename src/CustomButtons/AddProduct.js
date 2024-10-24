@@ -22,7 +22,7 @@ const AddProduct = ({ open, setOpen }) => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get(`${URL}$/categories`); // Adjust the URL if necessary
+        const response = await axios.get(`${URL}/categories`); // Adjust the URL if necessary
         setCategories(response.data); // Set the categories into state
       } catch (error) {
         console.error('Error fetching categories:', error);
