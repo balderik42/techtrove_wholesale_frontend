@@ -87,7 +87,7 @@ const ProductListPage = () => {
               />
               <div className="listproduct-info">
                 <h3 className="listproduct-name">{product.shortName}</h3>
-                <p className="listproduct-price">Price: ₹{product.sellingPrice}</p>
+                <p className="listproduct-price">Price: ₹{product.DSP}</p>
                 <p className="listproduct-stock">
                   {product.stock === 'Out of Stock' ? 'Out of Stock' : '\u00A0'}
                 </p>

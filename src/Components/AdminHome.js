@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './AdminHome.css'; // Import your CSS for styling
+import './AdminHome.css';
 
-const URL =  process.env.REACT_APP_API_URL || 'http://localhost:8000'
+const URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
 const AdminHome = () => {
   const [products, setProducts] = useState([]);
@@ -10,8 +10,10 @@ const AdminHome = () => {
     shortName: '',
     longName: '',
     category: '',
-    price: '',
-    sellingPrice: '',
+    WSP: '',
+    DSP: '',
+    RSP: '',
+    MRP: '',
     description: '',
     image: null,
     stock: '',
@@ -43,6 +45,7 @@ const AdminHome = () => {
     fetchProducts();
     fetchCategories();
   }, []);
+
   const handleInputChange = (event) => {
     setFormData({ ...formData, [event.target.id]: event.target.value });
   };
@@ -62,8 +65,10 @@ const AdminHome = () => {
         shortName: response.data.shortName,
         longName: response.data.longName,
         category: response.data.category,
-        price: response.data.price,
-        sellingPrice: response.data.sellingPrice,
+        WSP: response.data.WSP,
+        DSP: response.data.DSP,
+        RSP: response.data.RSP,
+        MRP: response.data.MRP,
         description: response.data.description,
         image: null, // Handle image separately
         stock: response.data.stock,
@@ -75,14 +80,17 @@ const AdminHome = () => {
       console.error('Error fetching product for edit:', error);
     }
   };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const objFormData = new FormData();
     objFormData.append('shortName', formData.shortName);
     objFormData.append('longName', formData.longName);
     objFormData.append('category', formData.category);
-    objFormData.append('price', formData.price);
-    objFormData.append('sellingPrice', formData.sellingPrice);
+    objFormData.append('WSP', formData.WSP);
+    objFormData.append('DSP', formData.DSP);
+    objFormData.append('RSP', formData.RSP);
+    objFormData.append('MRP', formData.MRP);
     objFormData.append('description', formData.description);
     if (formData.image) {
       objFormData.append('image', formData.image);
@@ -91,13 +99,11 @@ const AdminHome = () => {
 
     try {
       if (isEditing) {
-        // PUT request for updating the product
         await axios.put(`${URL}/products/${editingProductId}`, objFormData, {
           headers: { 'Content-Type': 'multipart/form-data' },
         });
         alert('Product updated successfully');
       } else {
-        // POST request for adding a new product
         await axios.post(`${URL}/addproduct`, objFormData, {
           headers: { 'Content-Type': 'multipart/form-data' },
         });
@@ -109,8 +115,10 @@ const AdminHome = () => {
         shortName: '',
         longName: '',
         category: '',
-        price: '',
-        sellingPrice: '',
+        WSP: '',
+        DSP: '',
+        RSP: '',
+        MRP: '',
         description: '',
         image: null,
         stock: '',
@@ -148,8 +156,10 @@ const AdminHome = () => {
           <tr>
             <th>Image</th>
             <th>Short Name</th>
+            <th>WSP</th>
+            <th>DSP</th>
+            <th>RSP</th>
             <th>MRP</th>
-            <th>Selling Price</th>
             <th>Stock Status</th>
             <th>Actions</th>
           </tr>
@@ -161,8 +171,10 @@ const AdminHome = () => {
                 <img src={`${URL}${product.image}`} alt={product.shortName} className="admin-product-image" />
               </td>
               <td>{product.shortName}</td>
-              <td>{product.price}</td>
-              <td>{product.sellingPrice}</td>
+              <td>{product.WSP}</td>
+              <td>{product.DSP}</td>
+              <td>{product.RSP}</td>
+              <td>{product.MRP}</td>
               <td>{product.stock}</td>
               <td>
                 <button className="btn edit-btn" onClick={() => handleEditProduct(product._id)}>Edit</button>
@@ -175,7 +187,7 @@ const AdminHome = () => {
 
       {showForm && (
         <div className="modal-overlay">
-          <div className="modal">
+          <div className="add-product-modal">
             <h2>{isEditing ? 'Edit Product' : 'Add Product'}</h2>
             <form onSubmit={handleSubmit}>
               <div className="form-group">
@@ -198,33 +210,35 @@ const AdminHome = () => {
                 </select>
               </div>
               <div className="form-group">
-                <label htmlFor="price">Price:</label>
-                <input type="number" id="price" value={formData.price} onChange={handleInputChange} placeholder="Enter price" />
+                <label htmlFor="WSP">Wholesale Price (WSP):</label>
+                <input type="number" id="WSP" value={formData.WSP} onChange={handleInputChange} placeholder="Enter WSP" />
               </div>
               <div className="form-group">
-                <label htmlFor="sellingPrice">Selling Price:</label>
-                <input type="number" id="sellingPrice" value={formData.sellingPrice} onChange={handleInputChange} placeholder="Enter selling price" />
+                <label htmlFor="DSP">Dropshipping Price (DSP):</label>
+                <input type="number" id="DSP" value={formData.DSP} onChange={handleInputChange} placeholder="Enter DSP" />
+              </div>
+              <div className="form-group">
+                <label htmlFor="RSP">Retail Price (RSP):</label>
+                <input type="number" id="RSP" value={formData.RSP} onChange={handleInputChange} placeholder="Enter RSP" />
+              </div>
+              <div className="form-group">
+                <label htmlFor="MRP">Maximum Retail Price (MRP):</label>
+                <input type="number" id="MRP" value={formData.MRP} onChange={handleInputChange} placeholder="Enter MRP" />
               </div>
               <div className="form-group">
                 <label htmlFor="description">Description:</label>
-                <textarea id="description" value={formData.description} onChange={handleInputChange} placeholder="Enter product description"></textarea>
+                <textarea id="description" value={formData.description} onChange={handleInputChange} placeholder="Enter description"></textarea>
               </div>
               <div className="form-group">
                 <label htmlFor="image">Image:</label>
-                <input type="file" id="image" onChange={handleImageChange} />
+                <input type="file" id="image" accept="image/*" onChange={handleImageChange} />
               </div>
               <div className="form-group">
                 <label htmlFor="stock">Stock Status:</label>
-                <select id="stock" value={formData.stock} onChange={handleStockChange}>
-                  <option value="">Select Stock Status</option>
-                  <option value="In Stock">In Stock</option>
-                  <option value="Out of Stock">Out of Stock</option>
-                </select>
+                <input type="text" id="stock" value={formData.stock} onChange={handleStockChange} placeholder="Enter stock status" />
               </div>
-              <div className="form-actions">
-                <button type="submit">{isEditing ? 'Update Product' : 'Add Product'}</button>
-                <button type="button" onClick={handleClose}>Cancel</button>
-              </div>
+              <button type="submit" className="btn submit-btn">{isEditing ? 'Update Product' : 'Add Product'}</button>
+              <button type="button" className="btn close-btn" onClick={handleClose}>Close</button>
             </form>
           </div>
         </div>

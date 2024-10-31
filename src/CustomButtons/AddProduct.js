@@ -3,38 +3,38 @@ import axios from 'axios';
 import '../CustomButtons/addProduct.css'; // Import your CSS for modal styling
 import { authenticateAddProduct } from '../services/api';
 
-const URL =  process.env.REACT_APP_API_URL || 'http://localhost:8000'
+const URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
 const AddProduct = ({ open, setOpen }) => {
   const [formData, setFormData] = useState({
     shortName: '',
     longName: '',
-    category: '',
-    price: '',
-    sellingPrice: '',
+    category: '', 
+    WSP: '',
+    DSP: '',
+    RSP: '',
+    MRP: '',
     description: '',
     image: null,
-    stock: '', // Add stock status field
+    stock: '',
   });
 
   const [categories, setCategories] = useState([]);
 
+  // Fetch categories when the component loads
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get(`${URL}/categories`); // Adjust the URL if necessary
-        setCategories(response.data); // Set the categories into state
+        const response = await axios.get(`${URL}/categories`);
+        setCategories(response.data);
       } catch (error) {
         console.error('Error fetching categories:', error);
       }
     };
-
     fetchCategories();
   }, []);
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const handleClose = () => setOpen(false);
 
   const handleInputChange = (e) => {
     setFormData({
@@ -42,7 +42,6 @@ const AddProduct = ({ open, setOpen }) => {
       [e.target.id]: e.target.value,
     });
   };
-
   const handleStockChange = (e) => {
     setFormData({
       ...formData,
@@ -51,38 +50,45 @@ const AddProduct = ({ open, setOpen }) => {
   };
 
   const handleImageChange = (e) => {
-    setFormData({
-      ...formData,
+    setFormData((prevData) => ({
+      ...prevData,
       image: e.target.files[0],
-    });
+    }));
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent the default form submission
-  
+    e.preventDefault();
+    
     const formDataObj = new FormData();
     formDataObj.append('shortName', formData.shortName);
     formDataObj.append('longName', formData.longName);
     formDataObj.append('category', formData.category);
-    formDataObj.append('price', formData.price);
-    formDataObj.append('sellingPrice', formData.sellingPrice);
+    formDataObj.append('WSP', formData.WSP);
+    formDataObj.append('DSP', formData.DSP);
+    formDataObj.append('RSP', formData.RSP);
+    formDataObj.append('MRP', formData.MRP);
     formDataObj.append('description', formData.description);
     formDataObj.append('image', formData.image);
-    formDataObj.append('stock', formData.stock); // Include stock status in the form submission
-  
+    formDataObj.append('stock', formData.stock); 
+    
+
+    
+
     try {
       const response = await authenticateAddProduct(formDataObj);
-      if (response.status === 201) { // Adjust status code as needed
+      if (response.status === 201) {
         alert('Product added successfully');
         setFormData({
           shortName: '',
           longName: '',
           category: '',
-          price: '',
-          sellingPrice: '',
+          WSP: '',
+          DSP: '',
+          RSP: '',
+          MRP: '',
           description: '',
           image: null,
-          stock: '', // Reset stock status
+          stock: '',
         });
         handleClose();
       }
@@ -95,8 +101,8 @@ const AddProduct = ({ open, setOpen }) => {
 
   return (
     <div className="modal-overlay">
-      <div className="modal">
-        <h2>Add Product</h2>
+      <div className="add-product-modal">
+      <h2>Add Product</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="shortName">Short Name:</label>
@@ -118,12 +124,44 @@ const AddProduct = ({ open, setOpen }) => {
             </select>
           </div>
           <div className="form-group">
-            <label htmlFor="price">Price:</label>
-            <input type="number" id="price" value={formData.price} onChange={handleInputChange} placeholder="Enter price" />
+            <label htmlFor="WSP">Wholesale Price (WSP):</label>
+            <input
+              type="number"
+              id="WSP"
+              value={formData.WSP}
+              onChange={handleInputChange}
+              placeholder="Enter wholesale price"
+            />
           </div>
           <div className="form-group">
-            <label htmlFor="sellingPrice">Selling Price:</label>
-            <input type="number" id="sellingPrice" value={formData.sellingPrice} onChange={handleInputChange} placeholder="Enter selling price" />
+            <label htmlFor="DSP">Dropshipping Price (DSP):</label>
+            <input
+              type="number"
+              id="DSP"
+              value={formData.DSP}
+              onChange={handleInputChange}
+              placeholder="Enter dropshipping price"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="RSP">Retail Price (RSP):</label>
+            <input
+              type="number"
+              id="RSP"
+              value={formData.RSP}
+              onChange={handleInputChange}
+              placeholder="Enter retail price"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="MRP">MRP:</label>
+            <input
+              type="number"
+              id="MRP"
+              value={formData.MRP}
+              onChange={handleInputChange}
+              placeholder="Enter MRP"
+            />
           </div>
           <div className="form-group">
             <label htmlFor="description">Description:</label>

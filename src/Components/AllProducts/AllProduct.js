@@ -77,8 +77,8 @@ const AllProducts = () => {
             />
             <div className="product-info">
               <h2>{product.shortName}</h2>
-              <p>MRP: ₹{product.price}</p>
-              <p>Selling Price: ₹{product.sellingPrice}</p>
+              <p>MRP: ₹{product.MRP}</p>
+              <p>Selling Price: ₹{product.DSP}</p>
               <p className="product-stock">
                 {product.stock === 'Out of Stock' ? 'Out of Stock' : '\u00A0'}
               </p>
