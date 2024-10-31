@@ -53,7 +53,7 @@ const AddUser =({addUser,setAddUser })=>{
     return(
         <div className="add-user-modal">
         <div className="modal-content">
-          <h2>Add User</h2>
+          <h2>SIGN UP TO TechTrove</h2>
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="firstName">First Name:</label>

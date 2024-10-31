@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import './NavBar.css';
-import AddProduct from '../CustomButtons/AddProduct';
-import AddUser from '../CustomButtons/addUser';
+
 
 const URL =  process.env.REACT_APP_API_URL || 'http://localhost:8000'
 const NavBar = ({ isUserAuthenticated, handleUserLogout }) => {
@@ -11,8 +10,7 @@ const NavBar = ({ isUserAuthenticated, handleUserLogout }) => {
   const location = useLocation();
 
   const [menuOpen, setMenuOpen] = useState(false);
-  const [open, setOpen] = useState(false);
-  const [addUser, setAddUser] = useState(false);
+ 
   const [user, setUser] = useState(null);
   const [showDropdown, setShowDropdown] = useState(false);
   const [products, setProducts] = useState([]); 
@@ -37,9 +35,7 @@ const NavBar = ({ isUserAuthenticated, handleUserLogout }) => {
   }, []);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
-  const openAddProduct = () => setOpen(true);
-  const openDialog = () => setAddUser(true);
-  const adminCategories = () => navigate('/admincategories');
+  
   const toggleDropdown = () => setShowDropdown(!showDropdown);
 
   const handleSearch = (e) => {
@@ -102,15 +98,7 @@ const NavBar = ({ isUserAuthenticated, handleUserLogout }) => {
         </div>
 
         <div className={`navbar-buttons ${menuOpen ? 'active' : ''}`}>
-          {isAdminPage ? (
-            <>
-              <button onClick={adminCategories}>Categories</button>
-              <button onClick={openDialog}>Add User</button>
-              <button onClick={() => navigate('/adminorders')}>All Orders</button>
-              <button onClick={openAddProduct}>Add Product</button>
-            </>
-          ) : (
-            <>
+         
               <button onClick={() => navigate('/all-products')}>All Products</button>
               {isUserAuthenticated ? (
                 <div className="dropdown">
@@ -128,13 +116,12 @@ const NavBar = ({ isUserAuthenticated, handleUserLogout }) => {
               )}
               <button onClick={() => navigate('/cart')}>Cart</button>
               <button onClick={() => navigate('/allorders')}>All Orders</button>
-            </>
-          )}
+            
+         
         </div>
       </nav>
 
-      <AddProduct open={open} setOpen={setOpen} />
-      {addUser && <AddUser addUser={addUser} setAddUser={setAddUser} />}
+      
     </>
   );
 };

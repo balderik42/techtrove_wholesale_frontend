@@ -16,7 +16,7 @@ export const authenticateAddProduct = async (formData)=>{
 
 export const authenticateSignup = async (formData) => {
   try {
-    const response = await axios.post(`${URL}/signup`, formData);
+    const response = await axios.post(`${URL}/retailusersignup`, formData);
     return response.data; // Return the response data
   } catch (error) {
     console.error('Error while calling signup API:', error.response?.data || error.message);

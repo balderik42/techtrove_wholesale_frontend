@@ -17,7 +17,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #1B5E3C;
+    background-color: #018692;
     color: white;
     position: sticky;
     top: 0;
@@ -30,11 +30,12 @@
   
   /* Logo styles */
   .logo-image {
-    height: 45px;
+    height: 40px;
     
   }
   .logo-name {
     height: 40px;
+    margin-left: 10px;
     
   }
   
