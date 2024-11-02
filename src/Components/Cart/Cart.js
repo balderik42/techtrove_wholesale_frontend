@@ -155,11 +155,11 @@ const CartPage = () => {
       <h1 className="cart-title">{userName}'s Cart</h1>
       <div className="cart-container">
         {cart.products.map((product) => (
-          <div key={product._id} className="product-card">
-            <img src={`${URL}${product.image}`} alt={product.shortName} className="product-image" />
-            <div className="product-info">
-              <h3 className="product-name">{product.shortName}</h3>
-              <p className="product-price">Price: ₹{product.price}</p>
+          <div key={product._id} className="cart-product-card">
+            <img src={`${URL}${product.image}`} alt={product.shortName} className="cart-product-image" />
+            <div className="cart-product-info">
+              <h3 className="cart-product-name">{product.shortName}</h3>
+              <p className="cart-product-price">Price: ₹{product.price}</p>
               <div className="quantity-control">
                 <button className="quantity-button" onClick={() => handleDecreaseQuantity(product._id, product.quantity)}>
                   -

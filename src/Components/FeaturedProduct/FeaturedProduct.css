@@ -1,0 +1,82 @@
+.featured-products {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .featured-products h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .featured-products-list {
+    display: flex;
+    gap: 20px; /* Space between cards */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    padding-bottom: 10px; /* Padding for better visual separation */
+  }
+  
+  /* Hide scrollbar for Webkit browsers */
+  .featured-products-list::-webkit-scrollbar {
+    display: none; /* Hide scrollbar */
+  }
+  
+  /* Hide scrollbar for IE and Edge */
+  .featured-products-list {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .featured-product-item {
+    width: 200px; /* Fixed width for product cards */
+    height: 350px; /* Fixed height for product cards */
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 0 0 auto; /* Prevent flex items from shrinking */
+  }
+  
+  .featured-product-item img {
+    width: 100%; /* Ensure images fill the card */
+    height: 250px; /* Fixed height for images */
+    object-fit: cover; /* Maintain aspect ratio and fill the space */
+    border-radius: 8px;
+  }
+  
+  .featured-product-item h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    height: 40px; /* Fixed height for title to ensure uniformity */
+  }
+  
+  .featured-product-item .price {
+    font-weight: bold;
+    color: #d9534f;
+    height: 30px; /* Fixed height for price to ensure uniformity */
+  }
+  
+  /* Responsive styles */
+  @media (min-width: 1200px) { /* Large screens */
+    .featured-products-list {
+      justify-content: flex-start; /* Align items to the start */
+    }
+    
+    .featured-product-item {
+      min-width: calc(25% - 20px); /* 4 items in a row, adjust for gap */
+    }
+  }
+  
+  @media (max-width: 1199px) and (min-width: 768px) { /* Medium screens */
+    .featured-product-item {
+      min-width: calc(33.33% - 20px); /* 3 items in a row */
+    }
+  }
+  
+  @media (max-width: 767px) { /* Small screens */
+    .featured-product-item {
+      min-width: calc(50% - 20px); /* 2 items in a row */
+    }
+  }
+  

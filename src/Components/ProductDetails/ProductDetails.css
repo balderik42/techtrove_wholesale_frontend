@@ -18,14 +18,18 @@
   margin-bottom: 20px;
 }
 
+/* Set fixed width and height for image container */
 .detailed-product-image-container {
   flex: 1;
   padding: 20px;
+  width: 300px; /* Fixed width for image container */
+  height: 300px; /* Fixed height for image container */
 }
 
+/* Set fixed size for image */
 .detailed-product-image {
   width: 100%;
-  height: auto;
+  height: 342px;
   object-fit: cover;
   border-radius: 8px;
 }
@@ -76,7 +80,6 @@
   cursor: pointer;
   border-radius: 5px;
   font-size: 16px;
- 
 }
 
 .add-to-website-btn {
@@ -94,10 +97,27 @@
   opacity: 0.8;
 }
 
+/* Unique card styling per page */
+.product-details.product-page-1 {
+  background-color: #e0f7fa;
+}
+
+.product-details.product-page-2 {
+  background-color: #ffebee;
+}
+
+.product-details.product-page-3 {
+  background-color: #f3e5f5;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .product-details {
     flex-direction: column;
+  }
+  .detailed-product-image{
+    height: 500px;
+    object-fit: fill;
   }
 
   .detailed-product-image-container,

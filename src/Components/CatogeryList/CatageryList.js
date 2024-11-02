@@ -21,6 +21,7 @@ const CatageryList = () => {
 
   return (
     <div className="category-container">
+      <h2>All Categories</h2>
       {loading ? <p>Loading...</p> : error ? <p>{error}</p> : (
         <ul>
           {categories.map(category => (

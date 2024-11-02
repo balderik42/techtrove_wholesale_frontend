@@ -48,6 +48,15 @@
     position: relative;
   }
   
+  .search-input-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .search-input-wrapper input {
+    padding-right: 30px; /* Add space for the icon */
+  }
  /* Updated search bar container */
 .navbar-search input {
   padding: 10px;
@@ -80,7 +89,7 @@
   font-size: 1.5rem;
   cursor: pointer;
   position: absolute;
-  right: 15px;
+  right: 10px;
   transition: transform 0.2s;
 }
 
@@ -117,6 +126,8 @@
 .search-result-item:hover {
   background-color: #D6F2ED;
 }
+
+
 
   .search-icon {
     color: #241b39;
@@ -162,10 +173,10 @@
   
   /* Button styles */
   .navbar-buttons button {
-    background-color: #102321;
+    background-color: #d1e1df;
     border: none;
     padding: 6px 15px;
-    color: white;
+    color: rgb(0, 0, 0);
     border-radius: 5px;
     margin-left: 10px;
     cursor: pointer;
@@ -209,7 +220,7 @@
   }
   
 
-  @media (max-width: 768px) {
+  @media (max-width: 920px) {
     /* Only show the logo and search bar, hide the buttons by default */
     .navbar-buttons {
       display: none;
@@ -227,6 +238,7 @@
         justify-content: space-between;
         padding: 5px 10px;
       }
+      
   
     /* When the menu is active (opened), show the buttons */
     .navbar-search {
@@ -243,7 +255,7 @@
         position: absolute;
         top: 60px;
         right: 0;
-        background-color: #241b39;
+        background-color: #018692;
         width: 200px;
         padding: 10px;
       }
@@ -251,18 +263,22 @@
         margin: 5px 0;
         width: 100%;
         text-align: left;
+
+      }
+      .dropdown {
+        width: 100%;
       }
   }
   
-  @media (max-width: 480px) {
+  @media (max-width: 580px) {
     /* Adjust for smaller screens */
     .navbar {
         flex-direction: row;
         align-items: center;
         flex-wrap: nowrap;
       }
-      .logo-image {
-        display: none;
+      .logo-name {
+       display: none;
         height: 45px;
         
       }
@@ -276,9 +292,7 @@
         width: calc(100% - 40px); /* Adjust for the space of the menu icon */
       }
   
-      .search-icon {
-        right: 15px; /* Adjust icon position */
-      }
+      
 
       .navbar-buttons.active {
         width: 100%;

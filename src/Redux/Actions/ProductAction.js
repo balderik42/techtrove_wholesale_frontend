@@ -6,7 +6,7 @@ export const listProductsByCategory = (category) => async (dispatch) => {
   try {
     dispatch({ type:actionTypes.PRODUCT_LIST_REQUEST });
 
-    const { data } = await axios.get(`${URL}/products?category=${category}`);
+    const { data } = await axios.get(`${URL}/products/category?category=${category}`);
     
     dispatch({ type: actionTypes.PRODUCT_LIST_SUCCESS, payload: data });
   } catch (error) {

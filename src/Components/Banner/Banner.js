@@ -4,8 +4,8 @@ import '../Banner/Banner.css'; // Create a CSS file for styling
 const Banner = () => {
   const images = [
     '/banner1.png', // Replace with the actual image URLs or import paths
-    '/banner2.png',
-    '/banner3.png'
+    '/banner1.png',
+    '/banner1.png'
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

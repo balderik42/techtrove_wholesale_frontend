@@ -1,0 +1,88 @@
+.new-arrivals {
+  padding: 20px;
+  text-align: center;
+}
+
+.new-arrivals h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+/* New Arrivals List */
+.new-arrivals-list {
+  display: flex;
+  gap: 20px;
+  overflow-x: scroll;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+.new-arrivals-list::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari, and Edge */
+}
+.new-arrivals-list::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+/* Individual New Arrival Item */
+.new-arrival-item {
+  flex: 0 0 200px; /* Fixed width for each item */
+  padding: 15px;
+  background-color: #9aa9a9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  scroll-snap-align: start;
+}
+
+/* Fixed size for images to ensure uniformity */
+.new-arrival-item img {
+  width: 100%;
+  max-width: 180px;
+  height: 250px; /* Fixed height */
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Fixed size for text elements */
+.new-arrival-item h3 {
+  margin: 10px 0;
+  font-size: 18px;
+  color: #333;
+  min-height: 50px; /* Ensures uniform height for names */
+  overflow: hidden;
+}
+
+.new-arrival-item p {
+  color: #555;
+  margin: 5px 0;
+}
+
+.price {
+  font-weight: bold;
+  color: #d9534f;
+  min-height: 24px; /* Ensures uniform height for price */
+}
+
+/* Responsive adjustments */
+@media (min-width: 1024px) {
+  .new-arrival-item {
+    flex: 0 0 20%; /* Show 5 items per view on large screens */
+  }
+}
+
+@media (max-width: 1023px) and (min-width: 600px) {
+  .new-arrival-item {
+    flex: 0 0 30%; /* Show 3 items per view on medium screens */
+  }
+}
+
+@media (max-width: 599px) {
+  .new-arrival-item {
+    flex: 0 0 45%; /* Show 2 items per view on small screens */
+  }
+}

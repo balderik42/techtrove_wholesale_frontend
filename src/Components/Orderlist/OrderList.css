@@ -3,12 +3,17 @@
   padding: 20px;
   max-width: 800px;
   margin: 0 auto;
-  font-family: Arial, sans-serif; /* Changed font for a modern look */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9; /* Subtle background for better contrast */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
 h2 {
-  text-align: center; /* Center align title */
-  color: #333; /* Darker text color */
+  text-align: center;
+  color: #333;
+  font-size: 1.8em;
+  margin-bottom: 20px;
 }
 
 .order-list {
@@ -17,28 +22,49 @@ h2 {
 }
 
 .order-item {
-  border: 1px solid #ccc;
-  border-radius: 8px; /* More rounded corners */
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
   padding: 15px;
   margin: 10px 0;
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s; /* Added scale effect */
+  background-color: #fff;
+  transition: background 0.3s, transform 0.2s;
 }
 
 .order-item:hover {
-  background: #f0f0f0;
-  transform: scale(1.02); /* Slightly scale up on hover */
+  background: #f7faff;
+  transform: scale(1.02);
 }
 
 .order-info {
-  display: flex; /* Flexbox for alignment */
-  justify-content: space-between; /* Space between index and details */
-  align-items: center; /* Center align items */
+  display: flex;
+  align-items: center;
 }
 
 .order-index {
-  font-weight: bold; /* Bold for index */
-  color: #007BFF; /* Primary color */
+  font-weight: bold;
+  color: #007BFF;
+  margin-right: 20px; /* Space between index and order details */
+}
+
+.order-details {
+  display: grid;
+  margin-left: 20px;
+  gap: 5px 20px;
+}
+
+.order-details p {
+  margin: 4px 0;
+  font-size: 1em;
+}
+
+.order-details p strong {
+  font-weight: 600;
+  color: #333;
+}
+
+.order-details p:last-child {
+  margin-bottom: 0;
 }
 
 /* Modal Styling */
@@ -48,7 +74,7 @@ h2 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,37 +85,32 @@ h2 {
   background: white;
   padding: 20px;
   border-radius: 10px;
-  max-width: 600px; /* Adjusted max-width for smaller modals */
-  width: 90%; /* Ensure it’s responsive */
+  max-width: 600px;
+  width: 90%;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  overflow-y: auto; /* Allow scrolling if content overflows */
-  max-height: 80vh; /* Set maximum height for the modal */
-  position: relative; /* Relative positioning for close button */
+  overflow-y: auto;
+  max-height: 80vh;
+  position: relative;
 }
 
-/* Close button */
 .close-button {
   position: absolute;
   top: 10px;
   right: 10px;
-  background: #ff0000; /* Red background for close button */
+  background: #d9534f;
   color: white;
   border: none;
-  border-radius: 5px;
-  padding: 5px 10px;
+  border-radius: 10%;
+  width: 33px;
+  height: 21px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10.5px;
 }
 
 /* Order Details */
-.order-details {
-  margin-top: 20px; /* Added margin for better spacing */
-}
-
-.order-details h3 {
-  margin-bottom: 10px; /* Space below the title */
-  text-align: center; /* Center align the title */
-}
-
 .order-details ul {
   list-style: none;
   padding: 0;
@@ -97,39 +118,43 @@ h2 {
 
 .order-details li {
   margin-bottom: 15px;
-  display: flex; /* Flexbox for aligning image and text */
-  align-items: center; /* Center vertically */
-  padding: 5px 0; /* Added padding for better spacing */
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
 }
 
 .orderlist-image {
-  max-width: 80px; /* Smaller image size for a neater look */
+  max-width: 70px;
   height: auto;
-  margin-right: 10px; /* Space between image and text */
+  margin-right: 15px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
 }
 
 /* Loading and Error Messages */
 .loading-message,
 .error-message {
-  color: #f00; /* Red color for error messages */
+  color: #d9534f;
   text-align: center;
+  font-size: 1.1em;
 }
 
-/* Responsive adjustments */
+/* Responsive Adjustments */
 @media (max-width: 600px) {
   .modal-content {
-    padding: 15px; /* Reduced padding on small screens */
+    padding: 15px;
   }
 
   .orderlist-image {
-    max-width: 50px; /* Smaller images on mobile */
-  }
-
-  .close-button {
-    padding: 5px 8px; /* Adjust close button size on mobile */
+    max-width: 50px;
   }
 
   .order-item {
-    padding: 10px; /* Less padding on mobile */
+    padding: 10px;
+  }
+
+  .order-index {
+    font-size: 1em;
+    margin-right: 10px;
   }
 }

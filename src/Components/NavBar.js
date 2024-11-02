@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import './NavBar.css';
@@ -16,7 +16,7 @@ const NavBar = ({ isUserAuthenticated, handleUserLogout }) => {
   const [products, setProducts] = useState([]); 
   const [searchResults, setSearchResults] = useState([]); 
   const [searchQuery, setSearchQuery] = useState('');
-
+  const menuRef = useRef(null);
   const isAdminPage = location.pathname === '/admin';
 
   useEffect(() => {
@@ -34,9 +34,9 @@ const NavBar = ({ isUserAuthenticated, handleUserLogout }) => {
     if (storedUser) setUser(storedUser);
   }, []);
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
   
-  const toggleDropdown = () => setShowDropdown(!showDropdown);
+  const toggleDropdown = () => setShowDropdown((prev) => !prev);
 
   const handleSearch = (e) => {
     const query = e.target.value?.toLowerCase() || '';
@@ -57,11 +57,25 @@ const NavBar = ({ isUserAuthenticated, handleUserLogout }) => {
     navigate(`/product/${productId}`);
     setSearchQuery('');
     setSearchResults([]);
+    setMenuOpen(false); 
   };
+  const handleClickOutside = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setMenuOpen(false);
+      setShowDropdown(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
     <>
-      <nav className="navbar">
+      <nav className="navbar"  ref={menuRef} >
         <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
           <div className="navbar-logo">
             <img src="/LogoCart.png" alt="My Logo" className="logo-image" />
@@ -70,6 +84,7 @@ const NavBar = ({ isUserAuthenticated, handleUserLogout }) => {
         </Link>
 
         <div className={`navbar-search ${menuOpen ? 'active' : ''}`}>
+        <div className="search-input-wrapper">
           <input
             type="text"
             placeholder={isAdminPage ? 'Search Admin products...' : 'Search products...'}
@@ -77,7 +92,7 @@ const NavBar = ({ isUserAuthenticated, handleUserLogout }) => {
             onChange={handleSearch}
           />
           <i className="fas fa-search search-icon"></i>
-
+          </div>
           {searchResults.length > 0 && (
             <div className="search-results">
               {searchResults.map((product) => (
@@ -99,7 +114,7 @@ const NavBar = ({ isUserAuthenticated, handleUserLogout }) => {
 
         <div className={`navbar-buttons ${menuOpen ? 'active' : ''}`}>
          
-              <button onClick={() => navigate('/all-products')}>All Products</button>
+        <button onClick={() => { navigate('/all-products'); toggleMenu(); }}>All Products</button>
               {isUserAuthenticated ? (
                 <div className="dropdown">
                   <button onClick={toggleDropdown}>
@@ -112,10 +127,10 @@ const NavBar = ({ isUserAuthenticated, handleUserLogout }) => {
                   )}
                 </div>
               ) : (
-                <button onClick={() => navigate('/userlogin')}>Login</button>
+                <button onClick={() => { navigate('/userlogin'); toggleMenu(); }}>Login</button>
               )}
-              <button onClick={() => navigate('/cart')}>Cart</button>
-              <button onClick={() => navigate('/allorders')}>All Orders</button>
+              <button onClick={() => { navigate('/cart'); toggleMenu(); }}>Cart</button>
+              <button onClick={() => { navigate('/allorders'); toggleMenu(); }}>All Orders</button>
             
          
         </div>

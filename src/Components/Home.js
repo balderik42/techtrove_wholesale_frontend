@@ -1,6 +1,8 @@
 import React from 'react';
 import Banner from './Banner/Banner';
 import CatageryList from './CatogeryList/CatageryList';
+import NewArrivals from './NewArrivals/NewArrivals';
+import FeaturedProducts from './FeaturedProduct/FeaturedProduct';
 
 
 const Home = () => {
@@ -8,6 +10,8 @@ const Home = () => {
     <div>
      <Banner/>
      <CatageryList/>
+     <NewArrivals/>
+     <FeaturedProducts/>
     </div>
   );
 };

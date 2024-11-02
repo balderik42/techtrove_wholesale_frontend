@@ -22,24 +22,25 @@
 /* Grid layout for product list */
 .listproduct-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(4, 1fr); /* Default: 4 items per row */
   gap: 20px;
   list-style: none;
   padding: 0;
 }
 
-/* Individual product card styling - Vertical Layout */
+/* Individual product card styling */
 .listproduct-card {
   background-color: #EFE4E6;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
-  flex-direction: column; /* Vertical alignment */
+  flex-direction: column;
   align-items: center;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   padding: 15px;
+  width: 100%; /* Full width of grid cell */
 }
 
 .listproduct-card:hover {
@@ -47,10 +48,10 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Ensure all images have the same height */
+/* Image styling with consistent dimensions */
 .list-product-image {
-  width: 100%; /* Full width */
-  height: 400px; /* Consistent height */
+  width: 250px; /* Set width for uniform appearance */
+  height: 300px; /* Consistent height */
   object-fit: cover;
   margin-bottom: 15px;
 }
@@ -78,7 +79,7 @@
 .listproduct-stock {
   font-size: 1rem;
   color: #ff4d4d;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 /* Button styling */
@@ -86,7 +87,7 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 10px 0 0 0;
+  padding-top: 10px;
   border-top: 1px solid #ddd;
   background-color: #EFEFE6;
 }
@@ -100,7 +101,7 @@
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  flex: 1; /* Make both buttons take equal space */
+  flex: 1;
   margin: 0 5px;
 }
 
@@ -125,28 +126,31 @@
 }
 
 .success-message {
-  background-color: #4caf50; /* Green background */
-  color: white; /* White text */
-  padding: 10px; /* Some padding */
-  border-radius: 5px; /* Rounded corners */
-  margin-bottom: 20px; /* Space below the message */
-  text-align: center; /* Centered text */
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-
 /* Responsive adjustments */
-@media (max-width: 768px) {
+
+/* Medium screens - 2 items per row */
+@media (max-width: 992px) {
+  .listproduct-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding-left: 70px;
+  padding-right: 70px;
+  }
+  
   .product-list-title {
     font-size: 2rem;
   }
-
-  .listproduct-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-
+  
   .list-product-image {
-    height: 300px;
-    width:180px;
+    width: 220px;
+    height: 280px;
   }
 
   .btn {
@@ -155,17 +159,19 @@
   }
 }
 
-@media (max-width: 480px) {
-  .product-list-title {
-    font-size: 1.8rem;
-  }
-
+/* Small screens - 1 item per row */
+@media (max-width: 576px) {
   .listproduct-grid {
     grid-template-columns: 1fr;
   }
 
+  .product-list-title {
+    font-size: 1.8rem;
+  }
+
   .list-product-image {
-    height: 300px;
+    width: 180px;
+    height: 240px;
   }
 
   .btn {

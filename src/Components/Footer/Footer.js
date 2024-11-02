@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="footer-section about">
           <h3>About Us</h3>
           <p>
-            Welcome to Your Store! We provide high-quality products that bring value to your everyday life.
+            Welcome to TechTrove! We provide high-quality products that bring value to your everyday life.
           </p>
         </div>
         <div className="footer-section links">
@@ -23,8 +23,8 @@ const Footer = () => {
           <h3>Follow Us</h3>
           <div className="social-icons">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook"></i></a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/tech_trove.in?igsh=NGprcmxwOGpkNTg4" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a>
+            <a href="https://wa.me/+918078721040" target="_blank" rel="noopener noreferrer"><i className="fab fa-whatsapp"></i></a>
           </div>
         </div>
       </div>
