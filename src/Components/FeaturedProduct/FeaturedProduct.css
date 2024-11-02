@@ -13,7 +13,9 @@
     display: flex;
     gap: 20px; /* Space between cards */
     overflow-x: auto; /* Enable horizontal scrolling */
-    padding-bottom: 10px; /* Padding for better visual separation */
+    padding-bottom: 10px;
+    margin-left: -20px;
+    margin-right: -20px; /* Padding for better visual separation */
   }
   
   /* Hide scrollbar for Webkit browsers */

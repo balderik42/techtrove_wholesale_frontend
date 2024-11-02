@@ -16,7 +16,9 @@
   overflow-x: scroll;
   padding-bottom: 0;
   scroll-snap-type: x mandatory;
-  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  scrollbar-width: none; 
+  margin-left: -20px;
+    margin-right: -20px;/* Hide scrollbar for Firefox */
 }
 
 .new-arrivals-list::-webkit-scrollbar {
