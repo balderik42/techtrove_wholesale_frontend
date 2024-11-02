@@ -12,9 +12,9 @@
 /* New Arrivals List */
 .new-arrivals-list {
   display: flex;
-  gap: 20px;
+  gap: 15px;
   overflow-x: scroll;
-  padding-bottom: 10px;
+  padding-bottom: 0;
   scroll-snap-type: x mandatory;
   scrollbar-width: none; /* Hide scrollbar for Firefox */
 }
@@ -30,7 +30,7 @@
 /* Individual New Arrival Item */
 .new-arrival-item {
   flex: 0 0 200px; /* Fixed width for each item */
-  padding: 15px;
+  padding: 8px;
   background-color: #9aa9a9;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -83,6 +83,9 @@
 
 @media (max-width: 599px) {
   .new-arrival-item {
-    flex: 0 0 45%; /* Show 2 items per view on small screens */
+    flex: 0 0 50%; /* Show 2 items per view on small screens */
+  }
+  .new-arrival-item img {
+    height: 200px;
   }
 }

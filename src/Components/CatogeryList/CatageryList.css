@@ -65,6 +65,16 @@
       width: 45%;
     }
   }
-  
 
+  @media (max-width: 480px){
+
+    .category-container {
+      padding: 4px;
+    }
+   
+    .category-container li {
+      width: 43%;
+    }
+  
+  }
 

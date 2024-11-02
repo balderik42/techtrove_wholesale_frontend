@@ -79,4 +79,11 @@
       min-width: calc(50% - 20px); /* 2 items in a row */
     }
   }
-  
+  @media (max-width: 767px){
+    .featured-product-item img{
+      height: 200px;
+    }
+    .featured-product-item {
+     height: 303;
+    }
+  }
