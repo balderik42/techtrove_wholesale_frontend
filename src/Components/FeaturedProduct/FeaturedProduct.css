@@ -56,7 +56,8 @@
   .featured-product-item .price {
     font-weight: bold;
     color: #d9534f;
-    height: 30px; /* Fixed height for price to ensure uniformity */
+    height: 30px;
+    margin-top: 35px; /* Fixed height for price to ensure uniformity */
   }
   
   /* Responsive styles */

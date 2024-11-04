@@ -55,10 +55,7 @@ const ProductListPage = () => {
   };
   
 
-  const handleAddToWebsite = (product) => {
-    console.log(`Added ${product.shortName} to website`);
-    // Add logic to add product to website
-  };
+  
 
   const handleProductClick = (productId) => {
     navigate(`/product/${productId}`); // Navigate to the product details page
@@ -109,15 +106,7 @@ const ProductListPage = () => {
                   >
                     Add to Cart
                   </button>
-                  <button
-                    className="btn add-to-website-btn"
-                    onClick={(e) => {
-                      e.stopPropagation(); // Prevent event propagation to the <li> click
-                      handleAddToWebsite(product);
-                    }}
-                  >
-                    Add to Web
-                  </button>
+                  
                 </div>
               </div>
             </li>

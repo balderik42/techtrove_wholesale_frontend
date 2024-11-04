@@ -61,9 +61,7 @@ const ProductDetailsPage = () => {
     }
   };
 
-  const handleAddToWebsite = () => {
-    console.log(`Added ${product.shortName} to website`);
-  };
+  
 
   return (
     <div className="product-details-container">
@@ -106,12 +104,7 @@ const ProductDetailsPage = () => {
                 >
                   Add to Cart
                 </button>
-                <button
-                  className="btn add-to-website-btn"
-                  onClick={handleAddToWebsite}
-                >
-                  Add to Web
-                </button>
+              
               </div>
             </div>
           </div>

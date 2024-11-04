@@ -62,6 +62,12 @@
   display: flex;
   gap: 15px;
 }
+.product-mrp{
+  color: #ff0000;
+}
+.product-selling-price{
+  color: black;
+}
 
 .btn {
   padding: 10px 20px;
@@ -82,16 +88,7 @@
   font-size: 16px;
 }
 
-.add-to-website-btn {
-  background-color: #1B5E3C;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 16px;
-  margin-top: auto;
-}
+
 
 .btn:hover {
   opacity: 0.8;
@@ -116,7 +113,7 @@
     flex-direction: column;
   }
   .detailed-product-image{
-    height: 500px;
+    height: 380px;
     object-fit: fill;
   }
 
