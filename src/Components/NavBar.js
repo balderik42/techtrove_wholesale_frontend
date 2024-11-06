@@ -9,7 +9,7 @@ const NavBar = ({ isUserAuthenticated, handleUserLogout }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);  
  
   const [user, setUser] = useState(null);
   const [showDropdown, setShowDropdown] = useState(false);

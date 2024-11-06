@@ -9,7 +9,7 @@
   body {
     margin: 0;
     padding: 0;
-    background-color: #D6F2ED; /* Optional: Change the background color to match the navbar */
+    background-color: #f1aebd; /* Optional: Change the background color to match the navbar */
     font-family: Arial, sans-serif; /* Optional: Set a default font */
   }
 
@@ -17,7 +17,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #018692;
+    background-color: #6c112c;
     color: white;
     position: sticky;
     top: 0;
@@ -255,7 +255,7 @@
         position: absolute;
         top: 60px;
         right: 0;
-        background-color: #018692;
+        background-color: #6c112c;
         width: 200px;
         padding: 10px;
       }

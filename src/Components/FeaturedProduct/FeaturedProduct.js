@@ -45,7 +45,7 @@ const FeaturedProducts = () => {
           <div key={product._id} className="featured-product-item" onClick={() => handleProductClick(product._id)} >
             <img src={`${URL}${product.image}`} alt={product.shortName} />
             <h3>{product.shortName}</h3>
-            <p className="price">₹{product.RSP}</p>
+            <p className="price">₹{product.WSP}</p>
           </div>
         ))}
       </div>

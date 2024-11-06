@@ -35,7 +35,7 @@ const ProductListPage = () => {
     }
   
     try {
-      const response = await axios.post(`${URL}/retailaddtocart`, {
+      const response = await axios.post(`${URL}/wholesaleaddtocart`, {
         userId,
         productId: product._id,
         name: product.name,
@@ -84,7 +84,7 @@ const ProductListPage = () => {
               />
               <div className="listproduct-info">
                 <h3 className="listproduct-name">{product.shortName}</h3>
-                <p className="listproduct-price">Price: ₹{product.RSP}</p>
+                <p className="listproduct-price">Price: ₹{product.WSP}</p>
                 <p className="listproduct-stock">
                   {product.stock === 'Out of Stock' ? 'Out of Stock' : '\u00A0'}
                 </p>
